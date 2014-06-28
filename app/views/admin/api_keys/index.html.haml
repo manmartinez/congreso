@@ -1,0 +1,23 @@
+.page-header
+    %h1 API keys
+- if @api_keys.any?
+    .table-responsive
+        %table.table.table-striped
+            %thead
+                %tr
+                    %th Aplicaci&oacute;n
+                    %th API Key
+                    %th Acciones
+            %tbody
+                - @api_keys.each do |api_key|
+                    %tr
+                        %td= api_key.app_name
+                        %td= api_key.key
+                        %td
+                            = link_to 'Editar', edit_admin_api_key_url(api_key), :class => 'btn btn-default btn-sm'
+        = pagination(@api_keys) 
+- else
+    %p.well
+        No se han encontrado API Keys                    
+%p.text-right
+    = link_to 'Agregar', new_admin_api_key_url, :class => 'btn btn-primary'

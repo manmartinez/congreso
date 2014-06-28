@@ -1,0 +1,22 @@
+.page-header
+    %h1 Salones
+- if @rooms.any?
+    .table-responsive
+        %table.table.table-striped
+            %thead
+                %tr
+                    %th Nombre
+                    %th Acciones
+            %tbody
+                - @rooms.each do |room|
+                    %tr
+                        %td= room.name
+                        %td
+                            = link_to 'Editar', edit_admin_room_url(room), :class => 'btn btn-default btn-sm'
+                            = link_to 'Eliminar', admin_room_url(room), data: {method: :delete, confirm: '¿Estás seguro?'}, :class => 'btn btn-sm btn-danger'
+        = pagination(@rooms) 
+- else
+    %p.well
+        No se han encontrado salones                    
+%p.text-right
+    = link_to 'Agregar', new_admin_room_url, :class => 'btn btn-primary'

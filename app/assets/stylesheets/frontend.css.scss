@@ -1,0 +1,49 @@
+.jumbotron {
+    padding: 30px;
+}
+
+.header {
+    border-bottom: 1px solid #e5e5e5;
+    margin-bottom: 30px;
+
+    h1 {
+        font-size: 24px;
+        padding-bottom: 20px;
+    }
+}
+
+.question {
+    border-bottom: 1px solid #F0F0F0;
+}
+
+.question:last-child {
+    border-bottom: none;
+}
+
+.question-text {
+    margin-bottom: 15px;
+}
+
+.footer {
+    border-top: 1px solid #e5e5e5;
+    margin-top: 30px;
+    padding-top: 20px;
+}
+
+.votes-container {
+    padding-top: 20px;    
+    font-weight: bold;
+    text-align: center;
+
+    span.votes {
+        font-size: 40px;
+    }
+
+    span {
+        display: block;
+    }
+}
+
+.space-top {
+    margin-top: 20px;
+}

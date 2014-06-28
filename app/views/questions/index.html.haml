@@ -1,0 +1,37 @@
+= content_for :javascripts do
+    = javascript_include_tag 'angular-app'
+    = subscribe_to '/questions'
+
+.container
+    .header
+        %ul.nav.nav-pills.pull-right
+            %li= link_to 'Login', login_url           
+
+        %h1.text-muted Congreso
+    .jumbotron.text-center
+        %h1 ¡Participa!
+        %p.lead
+            Si te interesa enviar ver tus preguntas, descarga alguna de la aplicaciones
+            disponibles
+        %p
+            %button.btn.btn-success.btn-lg Ver apps
+    .questions(ng-controller="QuestionsCtrl")
+        = select_tag :activity_id, options_from_collection_for_select(@activities, :id, :name), prompt: 'Selecciona actividad', 'ng-model' => 'search.activity_id', :class => 'form-control'
+        %p.well.space-top(ng-hide="(questions | filter:search).length > 0")
+            No se han encontrado preguntas
+        .question.row(ng-repeat="question in questions | orderBy:'votes':true | filter:search")
+            .col-sm-2.votes-container
+                %span.votes {{ question.votes }}
+                %span votos
+            .col-sm-10
+                %h3 
+                    {{ question.user.full_name }}
+                %p
+                    %span.text-muted {{ question.created_at | date:"dd MMM 'a las' hh:mm a" }}
+                    %span.label.label-primary {{ question.activity.name }}
+                %p.question-text
+                    {{ question.text }}
+    .footer
+        %p 
+            &copy; Universidad Da Vinci 
+            = Time.now.year

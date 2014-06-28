@@ -1,0 +1,1 @@
+Admin.create!(name: 'Administrador', email: 'congreso@udavinci.edu.mx', password: '123456')

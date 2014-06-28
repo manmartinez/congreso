@@ -1,0 +1,24 @@
+.page-header
+    %h1 Administradores
+- if @admins.any?
+    .table-responsive
+        %table.table.table-striped
+            %thead
+                %tr
+                    %th Nombre
+                    %th Email
+                    %th Acciones
+            %tbody
+                - @admins.each do |admin|
+                    %tr
+                        %td= admin.name
+                        %td= admin.email
+                        %td
+                            = link_to 'Editar', edit_admin_admin_url(admin), :class => 'btn btn-default btn-sm'
+                            = link_to 'Eliminar', admin_admin_url(admin), data: {method: :delete, confirm: '¿Estás seguro?'}, :class => 'btn btn-sm btn-danger'
+        = pagination(@admins) 
+- else
+    %p.well
+        No se han encontrado administradores                    
+%p.text-right
+    = link_to 'Agregar', new_admin_admin_url, :class => 'btn btn-primary'

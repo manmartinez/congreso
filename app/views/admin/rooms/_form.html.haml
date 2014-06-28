@@ -1,0 +1,13 @@
+= render 'admin/shared/form_errors', target: @room
+
+= form_for [:admin, @room], html: {:class => 'form-horizontal', role: 'form'} do |f|
+  .form-group
+    = f.label :name, 'Nombre', :class => 'control-label col-sm-2'
+    .col-sm-10
+      = f.text_field :name, :class => 'form-control', placeholder: 'Nombre'
+
+  .form-actions.text-right
+    = f.submit 'Continuar', :class => 'btn btn-success'
+    = link_to 'Cancelar', admin_rooms_url, :class => 'btn btn-default'
+  
+

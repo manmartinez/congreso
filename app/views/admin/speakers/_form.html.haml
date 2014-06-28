@@ -1,0 +1,26 @@
+= render 'admin/shared/form_errors', target: @speaker
+
+= form_for [:admin, @speaker], multipart: true, html: {:class => 'form-horizontal', role: 'form'} do |f|
+    .form-group
+        = f.label :salutation, 'Grado', :class => 'control-label col-sm-2'
+        .col-sm-10
+            = f.text_field :salutation, :class => 'form-control', placeholder: 'Grado'
+    .form-group
+        = f.label :name, 'Nombre', :class => 'control-label col-sm-2'
+        .col-sm-10
+            = f.text_field :name, :class => 'form-control', placeholder: 'Nombre'
+    .form-group
+        = f.label :company, 'Instituci&oacute;n'.html_safe, :class => 'control-label col-sm-2'
+        .col-sm-10
+            = f.text_field :company, :class => 'form-control', placeholder: 'Instituci&oacute;n'.html_safe
+    .form-group
+        = f.label :photo, 'Foto', :class => 'control-label col-sm-2'
+        .col-sm-10
+            = f.file_field :photo, :class => 'form-control'
+    .form-group
+        = f.label :bio, 'CV', :class => 'control-label col-sm-2'
+        .col-sm-10
+            = f.text_area :bio, rows: 5, :class => 'form-control', placeholder: 'CV'
+    .form-actions.text-right
+        = f.submit 'Continuar', :class => 'btn btn-success'
+        = link_to 'Cancelar', admin_speakers_url, :class => 'btn btn-default'

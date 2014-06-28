@@ -1,0 +1,27 @@
+!!! 5
+%html
+    %head
+        %title Congreso
+        = stylesheet_link_tag 'backend', media: 'all', 'data-turbolinks-track' => true
+        = yield :stylesheets
+        
+        = javascript_include_tag 'application', 'data-turbolinks-track' => true
+        = yield :javascripts
+        = csrf_meta_tags
+    %body
+        .navbar.navbar-inverse.navbar-static-top(role="navigation")
+            .container
+                .navbar-header
+                    %button.navbar-toggle{data: {toggle: 'collapse', target: '#navbar-collapse'}}
+                        %i.icon-reorder
+                    = link_to 'Congreso', '#', :class => 'navbar-brand'
+                .collapse.navbar-collapse#navbar-collapse
+                    %ul.nav.navbar-nav.navbar-right
+                        %li= link_to 'Actividades', admin_activities_url
+                        %li= link_to 'Conferencistas', admin_speakers_url
+                        %li= link_to 'Salones', admin_rooms_url
+                        %li= link_to 'API Keys', admin_api_keys_url
+                        %li= link_to 'Administradores', admin_admins_url
+                        %li= link_to 'Logout', logout_url
+        .container    
+            = yield

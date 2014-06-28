@@ -1,0 +1,32 @@
+.page-header
+    %h1 Activities
+- if @activities.any?
+    .table-responsive
+        %table.table.table-striped
+            %thead
+                %tr
+                    %th Nombre
+                    %th Tipo de Actividad
+                    %th Conferencista
+                    %th Sal&oacute;n
+                    %th Fecha Inicio
+                    %th Fecha Fin
+                    %th Acciones
+            %tbody
+                - @activities.each do |activity|
+                    %tr
+                        %td= activity.name
+                        %td= activity.type_name
+                        %td= activity.speaker.name
+                        %td= activity.room.name
+                        %td= activity.starts_at
+                        %td= activity.ends_at
+                        %td
+                            = link_to 'Editar', edit_admin_activity_url(activity), :class => 'btn btn-default btn-sm'
+                            = link_to 'Eliminar', admin_activity_url(activity), data: {method: :delete, confirm: '¿Estás seguro?'}, :class => 'btn btn-sm btn-danger'
+        = pagination(@activities) 
+- else
+    %p.well
+        No se han encontrado actividades                    
+%p.text-right
+    = link_to 'Agregar', new_admin_activity_url, :class => 'btn btn-primary'

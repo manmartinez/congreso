@@ -1,0 +1,28 @@
+.page-header
+    %h1 Conferencistas
+- if @speakers.any?
+    .table-responsive
+        %table.table.table-striped
+            %thead
+                %tr
+                    %th 
+                    %th Nombre
+                    %th Instituci&oacute;n
+                    %th CV                    
+                    %th Acciones
+            %tbody
+                - @speakers.each do |speaker|
+                    %tr
+                        %td= image_tag speaker.photo.url, :class => 'img-circle photo-thumb'
+                        %td= "#{speaker.salutation} #{speaker.name}"
+                        %td= speaker.company
+                        %td= truncate speaker.bio, length: 100
+                        %td
+                            = link_to 'Editar', edit_admin_speaker_url(speaker), :class => 'btn btn-default btn-sm'
+                            = link_to 'Eliminar', admin_speaker_url(speaker), data: {method: :delete, confirm: '¿Estás seguro?'}, :class => 'btn btn-sm btn-danger'
+        = pagination(@speakers) 
+- else
+    %p.well
+        No se han encontrado conferencistas                    
+%p.text-right
+    = link_to 'Agregar', new_admin_speaker_url, :class => 'btn btn-primary'

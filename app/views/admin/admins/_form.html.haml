@@ -1,0 +1,25 @@
+= render 'admin/shared/form_errors', target: @admin
+
+= form_for [:admin, @admin], html: {:class => 'form-horizontal', role: 'form'} do |f|
+    .form-group
+        = f.label :name, 'Nombre', :class => 'control-label col-sm-2'
+        .col-sm-10
+            = f.text_field :name, :class => 'form-control', placeholder: 'Nombre'
+    .form-group   
+        = f.label :email, 'Email', :class => 'control-label col-sm-2'
+        .col-sm-10
+            = f.email_field :email, :class => 'form-control', placeholder: 'Email'
+    .form-group   
+        = f.label :password, 'Password', :class => 'control-label col-sm-2'
+        .col-sm-10
+            = f.password_field :password, :class => 'form-control', placeholder: 'Password'
+    .form-group   
+        = f.label :password_confirmation, 'Confirma Password', :class => 'control-label col-sm-2'
+        .col-sm-10
+            = f.password_field :password_confirmation, :class => 'form-control', placeholder: 'Password'
+
+    .form-actions.text-right
+        = f.submit 'Continuar', :class => 'btn btn-success'
+        = link_to 'Cancelar', admin_admins_url, :class => 'btn btn-default'
+  
+
