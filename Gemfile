@@ -22,4 +22,9 @@ gem 'private_pub'
 gem 'thin'
 gem 'rack-cors', :require => 'rack/cors'
 
-gem 'capistrano', '~> 3.2.0'
+# Use Capistrano for deployment
+group :development do
+      gem 'capistrano', '~> 3.2.0'
+      gem 'capistrano-rails', '~> 1.1'
+      gem 'capistrano-bundler', '~> 1.1.2'
+    end
