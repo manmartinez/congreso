@@ -21,3 +21,5 @@ gem 'font-awesome-sass-rails'
 gem 'private_pub'
 gem 'thin'
 gem 'rack-cors', :require => 'rack/cors'
+
+gem 'capistrano', '~> 3.2.0'
