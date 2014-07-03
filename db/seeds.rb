@@ -1,1 +1,1 @@
-Admin.create!(name: 'Administrador', email: 'congreso@udavinci.edu.mx', password: '123456')
+Admin.create!(name: 'Administrador', email: 'congreso@udavinci.edu.mx', password: '20Vcn.Davinci14')

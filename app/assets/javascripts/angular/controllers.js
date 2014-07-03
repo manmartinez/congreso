@@ -14,7 +14,7 @@ controllers.controller('QuestionsCtrl', ['$scope', '$http', '$interval', functio
 
     
     function loadQuestions() {
-        $http.get('http://192.168.0.183:3000/api/questions.json', {
+        $http.get('http://programacionparalela.com:8083/api/questions.json', {
             headers: {
                 'Authorization': 'Token token=' + 'b35778857fe5f70cd2edd7a3e8dd1d57'
             }
