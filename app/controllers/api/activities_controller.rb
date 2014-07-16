@@ -1,4 +1,4 @@
-class Api::ActivitiesController < ApplicationController
+class Api::ActivitiesController < Api::SharedController
   def index
     @activities = Activity.search(params).includes(:speaker, :room).order(:starts_at)
     render json: @activities.as_json(

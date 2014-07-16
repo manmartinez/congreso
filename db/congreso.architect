@@ -28,8 +28,8 @@
    <property key="ca.sqlpower.architect.etl.kettle.repos.password" value="" />
   </data-source>
   <data-source id="DS0">
-   <property key="Connection Type" value="PostgreSQL" />
    <property key="Logical" value="congreso" />
+   <property key="Connection Type" value="PostgreSQL" />
    <property key="JDBC URL" value="jdbc:postgresql://localhost:5432/congreso" />
    <property key="UID" value="congreso" />
    <property key="PWD" value="beans" />
